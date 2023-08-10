@@ -5,7 +5,7 @@ COPY --chown=jenkins:jenkins plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
 # install Maven, Java, Docker, AWS
 RUN apt update &&  apt upgrade -y 
-RUN apt install -y wget
+RUN apt install -y wget maven docker gettext
 # Kubectl
 RUN  wget https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
 
